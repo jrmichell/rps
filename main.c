@@ -22,7 +22,7 @@ int main() {
   printf("Welcome to Rock, Paper, Scissors!\n\n");
 
   // Loop through the game until WINNING_SCORE is reached
-  while (player_score != WINNING_SCORE || computer_score != WINNING_SCORE) {
+  while (player_score < WINNING_SCORE && computer_score < WINNING_SCORE) {
 
     // Get choice from player
     printf("Pick (R)ock, (P)aper, (S)cissors: ");
@@ -34,6 +34,8 @@ int main() {
     // with each of the 3 numbers representing
     // rock, paper, or scissors
     srand(time(NULL));
+
+    // n = rand() % (max - min + 1) + min
     int random_number = (rand() % (100 - 1 + 1) + 1);
 
     if (random_number <= 0) {
@@ -96,16 +98,16 @@ int main() {
       printf("Current score:\n Player: %d\n Computer: %d\n\n", player_score,
              computer_score);
     }
+  }
 
-    // Check if winning score was reached
-    if (computer_score == WINNING_SCORE) {
-      printf("Computer wins!\n");
-      return 0;
-    }
+  // Check if winning score was reached
+  if (computer_score == WINNING_SCORE) {
+    printf("Computer wins!\n");
+    return 0;
+  }
 
-    if (player_score == WINNING_SCORE) {
-      printf("Player wins!\n");
-      return 0;
-    }
+  if (player_score == WINNING_SCORE) {
+    printf("Player wins!\n");
+    return 0;
   }
 }
