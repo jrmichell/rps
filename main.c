@@ -21,7 +21,7 @@ int main() {
 
   printf("Welcome to Rock, Paper, Scissors!\n\n");
 
-  // Loop through the game until WINNING_SCORE is reached
+  // Loop through the game until a WINNING_SCORE is reached
   while (player_score < WINNING_SCORE && computer_score < WINNING_SCORE) {
 
     // Get choice from player
@@ -104,10 +104,11 @@ int main() {
   if (computer_score == WINNING_SCORE) {
     printf("Computer wins!\n");
     return 0;
-  }
-
-  if (player_score == WINNING_SCORE) {
+  } else if (player_score == WINNING_SCORE) {
     printf("Player wins!\n");
+    return 0;
+  } else {
+    printf("An error occured determining winner.\n");
     return 0;
   }
 }
